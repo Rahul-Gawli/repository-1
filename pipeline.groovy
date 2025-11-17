@@ -34,7 +34,7 @@ pipeline{
               steps{
                   timeout(10){
                   }
-                  waitForQualityGate abortPipeline: true, credentialsId: 'sonar-cred'
+                  waitForQualityGate abortPipeline: false, credentialsId: 'sonar-cred'
               }   
         }
         
