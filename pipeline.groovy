@@ -23,7 +23,7 @@ pipeline{
         
         stage('test-stage'){
              steps{
-                echo "test-success"
+                 sh 'mvn sonar:sonar -Dsonar.projectKey=student-app -Dsonar.host.url=http://98.91.210.148:9000 -Dsonar.login=ce05780eaa062933a4b17c76ba4bbaae7ee0b974'
              }
         }
         
