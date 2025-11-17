@@ -4,11 +4,13 @@ pipeline{
     
     
     stages {
+        
+        
         stage ('git_checkout'){
             steps{
                 git branch: 'main', url: 'https://github.com/Rahul-Gawli/student-ui-app.git'
             }
-        
+        }
         
         
         stage ('build-stage'){
@@ -24,11 +26,12 @@ pipeline{
                 echo "test-success"
              }
         }
+        
+            
         stage (deploy-stage){
             steps{
                 echo "deploy-success"
              }
-            }
         }
     }
 }
