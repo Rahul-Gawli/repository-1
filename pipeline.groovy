@@ -6,14 +6,14 @@ pipeline{
     stages {
         
     
-        stage ('git_checkout'){
+        stage ('git_checkout') {
             steps{
                 git branch: 'main', url: 'https://github.com/Rahul-Gawli/student-ui-app.git'
             }
         }
         
         
-        stage ('build-stage'){
+        stage ('build-stage') {
             steps{
                sh '/opt/maven/bin/mvn clean package'
             }
@@ -21,7 +21,7 @@ pipeline{
         
         
         
-        stage('test-stage'){
+        stage('test-stage') {
              steps{
                     // sh '''/opt/maven/bin/mvn sonar:sonar  -Dsonar.projectKey=student-app  -Dsonar.host.url=http://52.87.174.235:9000  -Dsonar.login=ce05780eaa062933a4b17c76ba4bbaae7ee0b974'''
                     withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-cred') {
@@ -30,7 +30,7 @@ pipeline{
              }
         }
 
-        stage('quality-gate'){
+        stage('quality-gate') {
               steps{
                       timeout(10) {
                     }
@@ -38,7 +38,7 @@ pipeline{
               }   
         }
         
-        stage ('deploy-stage'){
+        stage ('deploy-stage') {
             steps{
                 echo "deploy-success"
              }
