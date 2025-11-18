@@ -35,7 +35,7 @@ pipeline{
                       timeout(10) {
     // some block
 }
-                      waitForQualityGate abortPipeline: false, credentialsId: 'sonar-cred'
+                      waitForQualityGate abortPipeline: false, InstallationName: credentialsId: 'sonar-cred'
               }   
         }
         
