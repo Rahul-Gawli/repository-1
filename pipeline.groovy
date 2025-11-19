@@ -16,7 +16,7 @@ pipeline {
             steps {
               // sh '''/opt/maven/bin/mvn sonar:sonar -Dsonar.projectKey=jenkins-project-1 -Dsonar.host.url=http://18.234.34.49:9000 -Dsonar.login=aabd66798c003d760d4017fc8bf067cf8a081a9b'''
                  withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar-cred') {
-                        // sh '/opt/maven/bin/mvn sonar:sonar'
+                        sh '/opt/maven/bin/mvn sonar:sonar'
                 }
             }
         }
