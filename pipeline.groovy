@@ -28,8 +28,8 @@ pipeline {
                 waitForQualityGate abortPipeline: false, credentialsId: 'sonar-cred'
             }
         }
-        stage(deploy-stage) {
-            steps{
+        stage('deploy-stage') {
+            steps {
                 echo "deploy successfull"
             }
         }
