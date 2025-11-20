@@ -28,6 +28,12 @@ pipeline {
                 waitForQualityGate abortPipeline: true, credentialsId: 'sonar-cred'
             }
         }
+        stage('s3-artifactory') {
+            steps {
+                sh 'aws s3 cp target/studentapp-2.2-SNAPSHOT.war s3://nangi-bucket'
+            }
+        }
+        
         stage('deploy-stage') {
             steps {
                 echo "deploy successfull"
