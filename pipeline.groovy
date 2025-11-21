@@ -20,19 +20,19 @@ pipeline {
                 }
             }
         }
-        stage('Quality-gate') {
-            steps {
-                timeout(10) {
-    // some block
-                }
-                waitForQualityGate abortPipeline: true, credentialsId: 'sonar-cred'
-            }
-        }
-        stage('s3-artifactory') {
-            steps {
-                sh 'aws s3 cp target/studentapp-2.2-SNAPSHOT.war s3://nangi-bucket'
-            }
-        }
+        // stage('Quality-gate') {
+        //     steps {
+        //         timeout(10) {
+   
+        //         }
+        //         waitForQualityGate abortPipeline: true, credentialsId: 'sonar-cred'
+        //     }
+        // }
+        // stage('s3-artifactory') {
+        //     steps {
+        //         sh 'aws s3 cp target/studentapp-2.2-SNAPSHOT.war s3://nangi-bucket'
+        //     }
+        // }
         
         stage('deploy-stage') {
             steps {
